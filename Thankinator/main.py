@@ -1,6 +1,7 @@
 import requests
 import io
 import tkinter as tk 
+from tkinter import ttk
 from PIL import Image, ImageTk
 
 from ttkbootstrap import Style
