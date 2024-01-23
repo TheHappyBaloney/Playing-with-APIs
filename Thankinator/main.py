@@ -3,7 +3,7 @@ import io
 import tkinter as tk 
 from tkinter import ttk
 from PIL import Image, ImageTk
-
+from flask import Flask, render_template, jsonify
 from ttkbootstrap import Style
 
 root = tk.Tk()
@@ -15,14 +15,13 @@ style = Style(theme="sandstone")
 
 #define a function to retireve and display an image based on the selected category
 
-def display_image(category):
+def get_image(category):
     url = f"https://api.unsplash.com/photos/random?query={category}&orientation=landscape&client_id=2bSdjeiQ2cPm9Gj8pVOvC3tRLgGrBCilIu5NBRJShL8"
     data = requests.get(url).json()
     img_data = requests.get(data["urls"]["regular"]).content
 
-    photo = ImageTk.PhotoImage(Image.open(io.BytesIO(img_data))). resize((500, 500), resample = Image.LANCZOS)
-    label.config(image=photo)
-    label.image = photo
+    photo = ImageTk.PhotoImage(Image.open(io.BytesIO(img_data)).resize((500, 500), resample=Image.LANCZOS))
+    return {"image_data": photo}  
 
 def enable_button():
     generate_button.config(state = "normal" if category_var.get() != "Choose a category" else "disabled")
