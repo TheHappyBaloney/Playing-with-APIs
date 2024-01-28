@@ -37,7 +37,7 @@ def create_gui():
     category_dropdown.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
     category_dropdown.config(width=15)
 
-    generate_button = ttk.Button(root, text="Generate", state="disabled", command=lambda: display_image(category_var.get()))
+    generate_button = ttk.Button(root, text="Generate", state="disabled", command=lambda: get_image(category_var.get()))
     generate_button.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
     label = tk.Label(root,background="white")
