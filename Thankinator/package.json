@@ -1,0 +1,14 @@
+{
+  "name": "thankinator",
+  "version": "1.0.0",
+  "description": "A simple image generator",
+  "main": "main.py",
+  "scripts": {
+    "start" : "python main.py"
+  },
+  "author": "thehappybaloney",
+  "license": "MIT",
+    "dependencies": {
+        "Pillow": "^8.3.2"
+    }
+}
